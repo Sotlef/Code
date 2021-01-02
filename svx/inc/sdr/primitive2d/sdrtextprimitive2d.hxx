@@ -90,7 +90,7 @@ namespace drawinglayer::primitive2d
 
             // own get2DDecomposition to take aspect of decomposition with or without spell checker
             // into account
-            virtual void get2DDecomposition(Primitive2DDecompositionVisitor& rVisitor, const geometry::ViewInformation2D& rViewInformation) const override;
+            virtual void get2DDecomposition(Primitive2DDecompositionVisitor& rVisitor, VisitingParameters const & rParameters) const override;
 
             // transformed clone operator
             virtual std::unique_ptr<SdrTextPrimitive2D> createTransformedClone(const basegfx::B2DHomMatrix& rTransform) const = 0;
@@ -110,7 +110,7 @@ namespace drawinglayer::primitive2d
             basegfx::B2DHomMatrix               maObjectTransform;
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrContourTextPrimitive2D(
@@ -147,7 +147,7 @@ namespace drawinglayer::primitive2d
             attribute::SdrFormTextAttribute     maSdrFormTextAttribute;
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrPathTextPrimitive2D(
@@ -190,7 +190,7 @@ namespace drawinglayer::primitive2d
             bool                                    mbWordWrap : 1;         // for CustomShapes text layout
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrBlockTextPrimitive2D(
@@ -236,7 +236,7 @@ namespace drawinglayer::primitive2d
             bool                                    mbFixedCellHeight : 1;
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrStretchTextPrimitive2D(
@@ -271,7 +271,7 @@ namespace drawinglayer::primitive2d
             bool                                    mbWordWrap : 1;         // for CustomShapes text layout
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrAutoFitTextPrimitive2D(
@@ -305,7 +305,7 @@ namespace drawinglayer::primitive2d
             ::basegfx::B2DHomMatrix maTextRangeTransform;   // text range transformation from unit range ([0.0 .. 1.0]) to text range
 
             // local decomposition.
-            virtual void create2DDecomposition(Primitive2DContainer& rContainer, const geometry::ViewInformation2D& aViewInformation) const override;
+            virtual void create2DDecomposition(Primitive2DContainer& rContainer, VisitingParameters const & rParameters) const override;
 
         public:
             SdrChainedTextPrimitive2D(
