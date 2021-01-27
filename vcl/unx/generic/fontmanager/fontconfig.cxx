@@ -657,6 +657,7 @@ void PrintFontManager::addFontconfigDir( const OString& rDirName )
 
     // load dir-specific fc-config file too if available
     const OString aConfFileName = rDirName + "/fc_local.conf";
+    std::cerr << "Fontconfig file name: " << aConfFileName.getStr() << std::endl;
     FILE* pCfgFile = fopen( aConfFileName.getStr(), "rb" );
     if( pCfgFile )
     {
