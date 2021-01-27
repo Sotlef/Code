@@ -18,6 +18,7 @@
  */
 
 #include <memory>
+#include <iostream>
 #include <unx/fontmanager.hxx>
 #include <unx/helper.hxx>
 #include <comphelper/sequence.hxx>
@@ -86,7 +87,9 @@ private:
 FontCfgWrapper::FontCfgWrapper()
     : m_pFontSet( nullptr )
 {
+    std::cerr << "next: FcInit()" << std::endl;
     FcInit();
+    std::cerr << "FcInit() OK" << std::endl;
 }
 
 void FontCfgWrapper::addFontSet( FcSetName eSetName )
