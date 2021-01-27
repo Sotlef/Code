@@ -89,7 +89,7 @@ FontCfgWrapper::FontCfgWrapper()
     : m_pFontSet( nullptr )
 {
     std::cerr << "next: FcInit()" << std::endl;
-    setenv("FC_DEBUG", "1024", 1);
+    setenv("FC_DEBUG", "8191", 1);
     FcInit();
     std::cerr << "FcInit() OK" << std::endl;
 }
