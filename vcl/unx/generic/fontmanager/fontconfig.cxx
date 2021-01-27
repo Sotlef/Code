@@ -89,9 +89,9 @@ FontCfgWrapper::FontCfgWrapper()
     : m_pFontSet( nullptr )
 {
     std::cerr << "next: FcInit()" << std::endl;
-    setenv("FC_DEBUG", "8191", 1);
-    std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
-    setenv("FONTCONFIG_PATH", "/etc/fonts/", 1);
+    setenv("FC_DEBUG", "1024", 1);
+//    std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
+    setenv("FONTCONFIG_PATH", "/etc/fonts", 1);
     std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
     FcInit();
     std::cerr << "FcInit() OK" << std::endl;
