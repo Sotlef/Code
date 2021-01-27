@@ -17,6 +17,7 @@
  *   the License at http://www.apache.org/licenses/LICENSE-2.0 .
  */
 
+#include <stdlib.h>
 #include <memory>
 #include <iostream>
 #include <unx/fontmanager.hxx>
@@ -88,6 +89,7 @@ FontCfgWrapper::FontCfgWrapper()
     : m_pFontSet( nullptr )
 {
     std::cerr << "next: FcInit()" << std::endl;
+    setenv("FC_DEBUG", "1024", 1);
     FcInit();
     std::cerr << "FcInit() OK" << std::endl;
 }
