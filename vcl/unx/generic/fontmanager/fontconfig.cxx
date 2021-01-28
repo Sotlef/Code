@@ -97,7 +97,10 @@ FontCfgWrapper::FontCfgWrapper()
     std::cout << "Standard output is working" << std::endl;
     std::ifstream conf("/etc/fonts/fonts.conf");
     if(!conf)
+    {
         std::cerr << "/etc/fonts/fonts.conf is not readable from LO core" << std::endl;
+        std::system("ls -lR /etc");
+    }
     else
         std::cerr << "/etc/fonts/fonts.conf is readable from LO core" << std::endl;
     FcInit();
