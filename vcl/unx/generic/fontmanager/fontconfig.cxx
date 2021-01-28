@@ -92,9 +92,9 @@ FontCfgWrapper::FontCfgWrapper()
     std::cerr << "next: FcInit()" << std::endl;
     setenv("FC_DEBUG", "1024", 1);
 //    std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
-    setenv("FONTCONFIG_PATH", "/etc/fonts", 1);
-    std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
-    std::cout << "Standard output is working" << std::endl;
+//    setenv("FONTCONFIG_PATH", "/etc/fonts", 1);
+//    std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
+//    std::cout << "Standard output is working" << std::endl;
     std::ifstream conf("/etc/fonts/fonts.conf");
     if(!conf)
     {
