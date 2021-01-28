@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <memory>
 #include <iostream>
+#include <fstream>
 #include <unx/fontmanager.hxx>
 #include <unx/helper.hxx>
 #include <comphelper/sequence.hxx>
@@ -94,6 +95,11 @@ FontCfgWrapper::FontCfgWrapper()
     setenv("FONTCONFIG_PATH", "/etc/fonts", 1);
     std::cerr << "FONTCONFIG_PATH: " << getenv("FONTCONFIG_PATH") << std::endl;
     std::cout << "Standard output is working" << std::endl;
+    std::ifstream conf("/etc/fonts/fonts.conf");
+    if(!conf)
+        std::cerr << "/etc/fonts/fonts.conf is not readable from LO core" << std::endl;
+    else
+        std::cerr << "/etc/fonts/fonts.conf is readable from LO core" << std::endl;
     FcInit();
     std::cerr << "FcInit() OK" << std::endl;
 }
