@@ -95,6 +95,7 @@ FontCfgWrapper::FontCfgWrapper()
     if(!conf)
     {
         std::cerr << "/etc/fonts/fonts.conf is not readable from LO core" << std::endl;
+        std::cerr << "Snap: " << getenv("SNAP") << std::endl;
     }
     else
         std::cerr << "/etc/fonts/fonts.conf is readable from LO core" << std::endl;
