@@ -20,7 +20,6 @@
 #include <stdlib.h>
 #include <memory>
 #include <iostream>
-#include <fstream>
 #include <unx/fontmanager.hxx>
 #include <unx/helper.hxx>
 #include <comphelper/sequence.hxx>
@@ -91,14 +90,12 @@ FontCfgWrapper::FontCfgWrapper()
 {
     std::cerr << "next: FcInit()" << std::endl;
     setenv("FC_DEBUG", "1024", 1);
-    std::ifstream conf("/etc/fonts/fonts.conf");
-    if(!conf)
+    if(getenv("SNAP"))
     {
-        std::cerr << "/etc/fonts/fonts.conf is not readable from LO core" << std::endl;
-        std::cerr << "Snap: " << getenv("SNAP") << std::endl;
+        std::string fontconfigPath(getenv("SNAP"));
+        fontconfigPath += "/etc/fonts";
+        setenv("FONTCONFIG_PATH", fontconfigPath.c_str(), 1);
     }
-    else
-        std::cerr << "/etc/fonts/fonts.conf is readable from LO core" << std::endl;
     FcInit();
     std::cerr << "FcInit() OK" << std::endl;
 }
